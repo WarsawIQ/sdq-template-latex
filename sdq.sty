@@ -1,0 +1,78 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{sdq}[2026/04/25 SDQ manuscript formatting helpers]
+
+\RequirePackage[a4paper,top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm]{geometry}
+\RequirePackage{iftex}
+\ifPDFTeX
+  \RequirePackage[T1]{fontenc}
+  \RequirePackage[utf8]{inputenc}
+  \RequirePackage{newtxtext,newtxmath}
+\else
+  \RequirePackage{fontspec}
+  \setmainfont{Times New Roman}
+\fi
+
+\RequirePackage{setspace}
+\setstretch{1.0}
+\RequirePackage{microtype}
+\RequirePackage{ragged2e}
+\justifying
+\setlength{\parindent}{1.25em}
+\setlength{\parskip}{0pt}
+
+\RequirePackage{titlesec}
+\titleformat{\section}
+  {\bfseries\fontsize{14}{16}\selectfont}
+  {}{0em}{}
+\titlespacing*{\section}{0pt}{12pt}{8pt}
+
+\titleformat{\subsection}
+  {\itshape\fontsize{12}{14}\selectfont}
+  {}{0em}{}
+\titlespacing*{\subsection}{0pt}{12pt}{8pt}
+
+\titleformat{\subsubsection}
+  {\itshape\fontsize{12}{14}\selectfont}
+  {}{0em}{}
+\titlespacing*{\subsubsection}{0pt}{12pt}{8pt}
+
+\RequirePackage{graphicx}
+\RequirePackage{booktabs}
+\RequirePackage{array}
+\RequirePackage{caption}
+\captionsetup{font={normalsize}, labelfont=bf, justification=centering}
+\captionsetup[table]{position=top}
+\captionsetup[figure]{position=bottom}
+
+\RequirePackage{csquotes}
+\RequirePackage[hidelinks]{hyperref}
+\RequirePackage[backend=biber,style=authoryear,sorting=nyt,maxcitenames=2,mincitenames=1,maxbibnames=99,giveninits=true,uniquename=init]{biblatex}
+
+\pagestyle{empty}
+\pagenumbering{gobble}
+
+\makeatletter
+\renewcommand{\maketitle}{%
+  \begin{center}
+    \vspace*{2\baselineskip}
+    {\bfseries\fontsize{14}{16}\selectfont\@title\par}
+    \vspace{2\baselineskip}
+    \ifx\@author\@empty\else{\normalsize\@author\par}\fi
+    \ifx\@date\@empty\else{\normalsize\@date\par}\fi
+  \end{center}
+  \vspace{8pt}
+}
+\makeatother
+
+\newenvironment{sdqabstract}{%
+  \section*{Abstract}%
+  \noindent
+}{\par}
+
+\newcommand{\Objectives}[1]{\noindent\textbf{Objectives:} #1\par}
+\newcommand{\Methods}[1]{\noindent\textbf{Methods:} #1\par}
+\newcommand{\Results}[1]{\noindent\textbf{Results:} #1\par}
+\newcommand{\Conclusions}[1]{\noindent\textbf{Conclusions:} #1\par}
+\newcommand{\keywords}[1]{\par\noindent\textbf{Keywords:} #1\par}
+\newcommand{\tablesource}[1]{\par\smallskip\begin{center}\normalsize Source: #1\end{center}}
+\newcommand{\figuresource}[1]{\par\smallskip\begin{center}\normalsize Source: #1\end{center}}
