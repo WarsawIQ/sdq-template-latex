@@ -48,7 +48,7 @@ xelatex sdq-template.tex
 
 If Times New Roman is unavailable, LaTeX falls back to NewTX fonts.
 
-## Security & Defense Qqarterly Alignment Notes
+## Security & Defense Qarterly Alignment Notes
 - Abstract: structured (Objectives, Methods, Results, Conclusions) with target 200--250 words.
 - Keywords: 3--5 items.
 - Main flow: Introduction, Methods, Results, Discussion, Conclusions, References.
